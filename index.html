@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Week 1 HTML practice</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Header Section -->
+    <header class="nav">
+      <div class="nav__inner">
+        <h1>My Personal Bio</h1>
+        <nav aria-label="primary">
+          <ul class="menu">
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#hobbies">Hobbies</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <!-- About Section -->
+      <section id="about" class="section panel">
+        <div class="container">
+          <h2>About Me</h2>
+          <p class="muted stack">My name is Lasantha. I am learning web development to create responsive and user-friendly websites. Passionate about coding and exploring new technologies.</p>
+        </div>
+      </section>
+      <!-- Skills Section -->
+      <section id="skills" class="section panel">
+        <div class="container">
+          <h2>Skills</h2>
+          <ul class="skill-list stack">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+          </ul>
+        </div>
+      </section>
+      <!-- Hobbies Section -->
+      <section id="hobbies" class="section panel">
+        <div class="container">
+          <h2>Hobbies</h2>
+          <ul class="hobby-list stack">
+            <li>Reading</li>
+            <li>Coding</li>
+            <li>Photography</li>
+          </ul>
+        </div>
+      </section>
+      <!-- Blog Section -->
+      <section id="blog" class="section panel">
+        <div class="container">
+          <h2>My Blog</h2>
+          <div class="stack">
+            <article class="card">
+              <div class="card__body">
+                <h3>Post Title 1</h3>
+                <p class="muted">Published on: 23rd August 2025</p>
+                <p>This is the first blog post content, sharing my journey in web development.</p>
+              </div>
+            </article>
+            <article class="card">
+              <div class="card__body">
+                <h3>Post Title 2</h3>
+                <p class="muted">Published on: 23rd August 2025</p>
+                <p>This is the second blog post content, exploring CSS techniques.</p>
+              </div>
+            </article>
+            <article class="card">
+              <div class="card__body">
+                <h3>Post Title 3</h3>
+                <p class="muted">Published on: 23rd August 2025</p>
+                <p>This is the third blog post content, diving into JavaScript basics.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+      <!-- Projects Section -->
+      <section id="projects" class="section panel">
+        <div class="container">
+          <h2>Projects</h2>
+          <div class="grid">
+            <article class="card">
+              <img
+                src="img/landing_page.jpg"
+                alt="Project preview"
+              />
+              <div class="card__body">
+                <h3>Landing Page</h3>
+                <p class="muted">
+                  A clean page with responsive layout.
+                </p>
+                <a class="btn" href="#" aria-label="Open Landing Page project"
+                  >View</a
+                >
+              </div>
+            </article>
+            <article class="card">
+              <img
+                src="img/portfolio.jpg"
+                alt="Project preview"
+              />
+              <div class="card__body">
+                <h3>Portfolio</h3>
+                <p class="muted">Showcasing projects and contact form.</p>
+                <a class="btn" href="#">View</a>
+              </div>
+            </article>
+            <article class="card">
+              <img
+                src="img/blog_ui.png"
+                alt="Project preview"
+              />
+              <div class="card__body">
+                <h3>Blog UI</h3>
+                <p class="muted">Typography-focused blog layout.</p>
+                <a class="btn" href="#">View</a>
+              </div>
+            </article>
+            <article class="card">
+              <img
+                src="img/ecom.jpg"
+                alt="Project preview"
+              />
+              <div class="card__body">
+                <h3>E-Commerce</h3>
+                <p class="muted">Typography-focused blog layout.</p>
+                <a class="btn" href="#">View</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+      <!-- Contact Section -->
+      <section id="contact" class="section panel">
+        <div class="container">
+          <h2>Contact</h2>
+          <form action="#" method="post" class="stack">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Your Name"
+              class="form-input"
+            />
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="you@email.com"
+              class="form-input"
+            />
+            <label for="message">Message</label>
+            <textarea
+              name="message"
+              id="message"
+              rows="10"
+              placeholder="Your message"
+              class="form-input"
+            ></textarea><br>
+            <button class="btn" type="submit">Send</button>
+          </form>
+        </div>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer class="panel">
+      <div class="container">
+        <p>&copy; 2025 Lasantha Weerakoon</p>
+      </div>
+    </footer>
+  </body>
+</html>

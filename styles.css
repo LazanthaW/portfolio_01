@@ -1,0 +1,240 @@
+/* ----------CSS RESET + Globals---------- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+:root {
+    --bg: #0f172a; /* Page Background */
+    --panel: #111827; /* Card/Nav Background */
+    --text: #e5e7eb; /* Body Text Color */
+    --muted: #9ca3af; /* Secondary Text Color */
+    --brand: #22c55e; /* Primary accent */
+    --brand-2: #06b6d4; /* Secondary accent */
+    --radius: 16px; /* Border Radius */
+    --shadow: 0 8px 30px rgba(0, 0, 0, 0.25); /* Box Shadow */
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background: radial-gradient(1200px 800px at 50% 10%, #0b1228 10%, var(--bg) 60%);
+    color: var(--text);
+    font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: var(--brand-2); text-decoration: none;}
+a:hover { text-decoration: underline; }
+
+.container {
+    max-width: 1200px;
+    margin:10px auto;
+    padding: 25px;
+    width: 100%;
+}
+
+/* Headings */
+h1, h2, h3 { line-height: 1.2; margin: 0 0 0.5em; }
+h1 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; text-align: center;}
+h2 { font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 700; text-align: center; }
+h3 { font-size: 1.25rem; font-weight: 600; color: var(--text); text-align: center; }
+
+p, li { color: var(--text);text-align: center; }
+.muted { color: var(--muted); }
+
+/* Utility Spacing */
+.section { padding: 20px 0; }
+.stack > * + * { margin-top: 10x; }
+
+/* Box Model Practice */
+.panel {
+    background: var(--panel);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 20px;
+    margin: 25px 25px;
+}
+
+/* ---------- Navbar (Flexbox) ---------- */
+.nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(17, 24, 39, 0.7);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    text-align: center;
+}
+.nav__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 14px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 18px;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+.menu a {
+    padding: 8px 12px;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+/* Button Style */
+.btn,
+form button[type="submit"] {
+    display: inline-block;
+    width: 150px; /* Fixed width for all buttons */
+    height: 40px; /* Fixed height for all buttons */
+    padding: 8px 0; /* Adjusted padding to fit within height */
+    background: linear-gradient(135deg, var(--brand-2), var(--brand));
+    color: #06251a;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 1rem; /* Consistent font size */
+    box-shadow: 0 8px 20px rgba(34, 197, 94, 0.24);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    text-align: center; /* Center text horizontally */
+    line-height: 24px; /* Center text vertically within height */
+}
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 26px rgba(34, 197, 94, 0.35);
+}
+.btn:focus-visible {
+    outline: px solid #ffffff77;
+    outline-offset: 1px;
+}
+
+/* ---------- Skills and Hobbies Lists ---------- */
+.skill-list, .hobby-list {
+    list-style: none;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 35px;
+    justify-content: center;
+    align-items:center;/* Ensures items are vertically centered */
+}
+.skill-list li, .hobby-list li {
+    background: rgba(255, 255, 255, 0.1);
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 20px;
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    width: 140px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    direction: ltr;
+    unicode-bidi: isolate;
+    line-height: 1; /* Ensures vertical alignment */
+}
+
+/* ---------- Form Styling ---------- */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    margin-top: 20px;
+}
+.form-input {
+    width: 100%;
+    max-width: 800px;
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text);
+    font-size: 1rem;
+}
+.form-input:focus {
+    outline: 2px solid var(--brand-2);
+    outline-offset: 2px;
+}
+textarea.form-input {
+    resize: vertical;
+}
+
+/* ---------- Grid Layout ---------- */
+.grid {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    margin-top: 18px;
+    justify-content: center;
+}
+
+.card {
+    background: var(--panel);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    max-width: 1200px;
+    margin: 20px auto;
+}
+.card img { aspect-ratio: 16/10; object-fit: cover; }
+.card__body { padding: 25px; margin: 25px 25px; align-items: center;}
+.card h3 { margin-bottom: 6px; }
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+    border-color: rgba(255, 255, 255, 0.18);
+}
+
+/* ---------- Footer ---------- */
+footer {
+    text-align: center;
+}
+
+/* ---------- Media Queries ---------- */
+@media (min-width: 1200px) {
+    .section { padding: 20px 0; }
+    .container { padding: 20px; }
+}
+
+@media (max-width: 900px) {
+    .container { padding: 16px; }
+    .menu { gap: 12px; }
+    .section { padding: 15px 0; }
+    .skill-list, .hobby-list { flex-direction: column; align-items: center; }
+}
+
+@media (max-width: 640px) {
+    .nav__inner { flex-wrap: wrap; gap: 10px; }
+    .menu { width: 100%; justify-content: center; flex-wrap: wrap; }
+    .btn { 
+        width: 200px; 
+        height: 36px; 
+        padding: auto 0; 
+        line-height: 24px; 
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+    } /* Adjusted for mobile */
+    .form-input { max-width: 100%; }
+    h1 { font-size: clamp(1.8rem, 3.5vw, 2.5rem); }
+    h2 { font-size: clamp(1.3rem, 2.5vw, 1.8rem); }
+    h3 { font-size: clamp(0.9rem, 1.8vw, 1.1rem); }
+    .stack > * + * { margin-top: 8px; }
+}
