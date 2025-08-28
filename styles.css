@@ -38,7 +38,7 @@ a:hover { text-decoration: underline; }
 }
 
 /* Headings */
-h1, h2, h3 { line-height: 1.2; margin: 0 0 0.5em; }
+h1, h2, h3 { line-height: 1.2; margin: 0 0 0.5em; margin-left: 15px;}
 h1 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; text-align: center;}
 h2 { font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 700; text-align: center; }
 h3 { font-size: 1.25rem; font-weight: 600; color: var(--text); text-align: center; }
@@ -206,6 +206,11 @@ footer {
 }
 
 /* ---------- Media Queries ---------- */
+/* ...existing code... */
+.hamburger {
+  display: none;
+}
+/* ...existing code... */
 @media (min-width: 1200px) {
     .section { padding: 20px 0; }
     .container { padding: 20px; }
@@ -220,7 +225,48 @@ footer {
 
 @media (max-width: 640px) {
     .nav__inner { flex-wrap: wrap; gap: 10px; }
-    .menu { width: 100%; justify-content: center; flex-wrap: wrap; }
+    .menu { 
+        width: 100%; 
+        justify-content: center; 
+        flex-wrap: wrap; 
+        display: none; /* Hide menu by default on mobile */
+        flex-direction: column;
+        background: var(--panel);
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        z-index: 20;
+        padding: 20px 0;
+        border-bottom-left-radius: var(--radius);
+        border-bottom-right-radius: var(--radius);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+    }
+    .menu.menu--open {
+        display: flex; /* Show menu when open */
+    }
+    /* Hamburger styles */
+    .hamburger {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        background: none;
+        border: none;
+        gap: 6px;
+        cursor: pointer;
+        z-index: 1001;
+    }
+    .hamburger span {
+        display: block;
+        height: 4px;
+        width: 100%;
+        background: #e4e8eb;
+        border-radius: 2px;
+        transition: 0.3s;
+    }
+
     .btn { 
         width: 200px; 
         height: 36px; 
@@ -237,4 +283,39 @@ footer {
     h2 { font-size: clamp(1.3rem, 2.5vw, 1.8rem); }
     h3 { font-size: clamp(0.9rem, 1.8vw, 1.1rem); }
     .stack > * + * { margin-top: 8px; }
+}
+
+/* Responsive nav */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+  .nav__inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  nav[aria-label="primary"] {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: #fff;
+    width: 200px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transform: translateX(100%);
+    transition: transform 0.3s;
+    z-index: 1000;
+  }
+  nav[aria-label="primary"].open {
+    transform: translateX(0);
+  }
+  .menu {
+    flex-direction: column;
+    gap: 0;
+    padding: 1rem 0;
+  }
+  .menu li {
+    margin: 0;
+    padding: 0.5rem 1.5rem;
+  }
 }

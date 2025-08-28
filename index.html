@@ -16,7 +16,12 @@
     <header class="nav">
       <div class="nav__inner">
         <h1>My Personal Bio</h1>
-        <nav aria-label="primary">
+        <button class="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="main-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav id="main-menu" aria-label="primary">
           <ul class="menu">
             <li><a href="#about">About</a></li>
             <li><a href="#skills">Skills</a></li>
@@ -181,5 +186,16 @@
         <p>&copy; 2025 Lasantha Weerakoon</p>
       </div>
     </footer>
+    <script>
+      const hamburger = document.querySelector('.hamburger');
+      const nav = document.querySelector('nav[aria-label="primary"]');
+      const menu = document.querySelector('.menu');
+      hamburger.addEventListener('click', function () {
+        const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+        hamburger.setAttribute('aria-expanded', !expanded);
+        nav.classList.toggle('open');
+        menu.classList.toggle('menu--open'); // Add this line
+      });
+    </script>
   </body>
 </html>
